@@ -5,9 +5,11 @@
             Argentina Programa
         </a>
         <form class="d-flex" role="search">
-            <a type="button" href="/login" class="btn btn-success m-1">LOGIN</a>
-            <a type="button" href="#" class="btn btn-danger m-1">LOGOUT</a>
-            <a type="button" href="#" class="btn btn-warning m-1">SIGN IN</a>
+            <button type="button" href="/login" class="btn btn-success m-1" (click)="login()"
+                *ngIf="!isLogged">LOGIN</button>
+            <button type="button" href="#" class="btn btn-danger m-1" (click)="onLogOut()"
+                *ngIf="isLogged">LOGOUT</button>
+            <button type="button" href="#" class="btn btn-warning m-1" *ngIf="!isLogged">SIGN IN</button>
         </form>
     </div>
 </nav>
