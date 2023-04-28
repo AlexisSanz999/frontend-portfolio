@@ -11,12 +11,15 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
 import { SkillsComponent } from './components/skills/skills.component';
 import { ProyectsComponent } from './components/proyects/proyects.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { HomeComponent } from './components/home/home.component';
+import { LoginComponent } from './components/login/login.component';
 
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { HomeComponent } from './components/home/home.component';
-import { LoginComponent } from './components/login/login.component';
+
 import { interceptorProvider } from './service/interceptor-service';
+import { NewExperiencieComponent } from './components/experience/new-experiencie/new-experiencie.component';
+import { EditExperiencieComponent } from './components/experience/edit-experiencie/edit-experiencie.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +33,8 @@ import { interceptorProvider } from './service/interceptor-service';
     FooterComponent,
     HomeComponent,
     LoginComponent,
+    NewExperiencieComponent,
+    EditExperiencieComponent,
   ],
   imports: [
     BrowserModule,

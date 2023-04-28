@@ -1,36 +1,25 @@
 <div class="border-0 m-5"></div>
 <nav class="navbar bg-dark" data-bs-theme="dark">
     <span class="navbar-brand mb-0 h1 mx-auto">EXPERIENCIA</span>
+    <button type="button" class="btn btn-warning fw-bold m-3" routerLink="/newxp" *ngIf="isLogged">
+        NUEVA EXPERIENCIA
+    </button>
 </nav>
+
 <div class="container-fluid d-flex justify-content-center">
     <div class="row row-cols-1 row-cols-md-3 g-4" style="max-width: 768px;">
-        <div class="col">
+        <div *ngFor="let Experiencia of expe" class="col">
             <div class="card h-100 text-bg-dark text-center mb-3 border-0 rounded-0">
                 <img src="../../../assets/6.png" class="card-img-top border-0 rounded-0" alt="...">
                 <div class="card-body">
-                    <h4 class="card-title">Card title</h4>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                        additional content. This content is a little bit longer.</p>
+                    <h4 class="card-title">{{Experiencia.nombreE}}</h4>
+                    <p class="card-text">{{Experiencia.descripcionE}}</p>
                 </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card h-100 text-bg-dark text-center mb-3 border-0 rounded-0">
-                <img src="../../../assets/7.png" class="card-img-top border-0 rounded-0" alt="...">
-                <div class="card-body">
-                    <h4 class="card-title">Card title</h4>
-                    <p class="card-text">This card has supporting text below as a natural lead-in to additional content.
-                    </p>
+                <div *ngIf="isLogged">
+                    <button class="btn btn-warning fw-bold" routerLink="/editxp/{{Experiencia.id}}">EDITAR</button>
                 </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card h-100 text-bg-dark text-center mb-3 border-0 rounded-0">
-                <img src="../../../assets/8.png" class="card-img-top border-0 rounded-0" alt="...">
-                <div class="card-body">
-                    <h4 class="card-title">Card title</h4>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                        additional content. This content is a little bit longer.</p>
+                <div *ngIf="isLogged">
+                    <button class="btn btn-danger fw-bold m-3" (click)="delete(Experiencia.id)">BORRAR</button>
                 </div>
             </div>
         </div>
