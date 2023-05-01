@@ -1,26 +1,24 @@
 <div class="border-0 m-5"></div>
 <nav class="navbar bg-dark" data-bs-theme="dark">
     <span class="navbar-brand mb-0 h1 mx-auto">PROYECTOS</span>
+    <button type="button" class="btn btn-warning fw-bold m-3" routerLink="/newproyect" *ngIf="isLogged">
+        NUEVO PROYECTO
+    </button>
 </nav>
 <div class="container-fluid d-flex justify-content-center">
     <div class="row row-cols-1 row-cols-md-2 g-4" style="max-width: 768px;">
-        <div class="col">
+        <div *ngFor="let Proyectos of proyectos" class="col">
             <div class="card h-100 text-bg-dark text-center mb-3 border-0 rounded-0">
-                <img src="../../../assets/12.png" class="card-img-top border-0 rounded-0" alt="...">
+                <img src="../../../assets/15.jpg" class="card-img-top border-0 rounded-0" alt="...">
                 <div class="card-body">
-                    <h4 class="card-title">Card title</h4>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                        additional content. This content is a little bit longer.</p>
+                    <h4 class="card-title">{{Proyectos.nombreE}}</h4>
+                    <p class="card-text">{{Proyectos.descripcionE}}</p>
                 </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card h-100 text-bg-dark text-center mb-3 border-0 rounded-0">
-                <img src="../../../assets/13.png" class="card-img-top border-0 rounded-0" alt="...">
-                <div class="card-body">
-                    <h4 class="card-title">Card title</h4>
-                    <p class="card-text">This card has supporting text below as a natural lead-in to additional content.
-                    </p>
+                <div *ngIf="isLogged">
+                    <button class="btn btn-warning fw-bold" routerLink="/editproyect/{{Proyectos.id}}">EDITAR</button>
+                </div>
+                <div *ngIf="isLogged">
+                    <button class="btn btn-danger fw-bold m-3" (click)="delete(Proyectos.id)">BORRAR</button>
                 </div>
             </div>
         </div>
